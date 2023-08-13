@@ -31,5 +31,15 @@ namespace Work_Tool
         {
             return (PrompTemplate)_formCreator(typeof(PrompTemplate));
         }
+
+        public Landing_Page CreateLandingPages()
+        {
+            return (Landing_Page)_formCreator(typeof(Landing_Page));
+        }
+
+        public Forms.Label_Wind CreateLabel()
+        {
+            return (Forms.Label_Wind)_formCreator(typeof(Forms.Label_Wind));
+        }
     }
 }

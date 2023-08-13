@@ -31,13 +31,13 @@ namespace Work_Tool.Forms
             this.Height = 300;
 
             // Primo label e textbox
-            Label label1 = new Label() { Text = "Nome:", Left = 10, Top = 20, Width = 250 };
+            System.Windows.Forms.Label label1 = new System.Windows.Forms.Label() { Text = "Nome:", Left = 10, Top = 20, Width = 250 };
 
             // Secondo label e textbox
-            Label label2 = new Label() { Text = "Template:", Left = 10, Top = 80, Width = 250 };
+            System.Windows.Forms.Label label2 = new System.Windows.Forms.Label() { Text = "Template:", Left = 10, Top = 80, Width = 250 };
 
             // Secondo label e textbox
-            Label label3 = new Label() { Text = "Descrizione:", Left = 10, Top = 140, Width = 250 };
+            System.Windows.Forms.Label label3 = new System.Windows.Forms.Label() { Text = "Descrizione:", Left = 10, Top = 140, Width = 250 };
 
             // Pulsanti OK e Cancel
             Button okButton = new Button() { Text = "OK", Left = 30, Width = 100, Top = 200, DialogResult = DialogResult.OK };

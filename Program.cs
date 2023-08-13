@@ -16,7 +16,6 @@ namespace Work_Tool
         [STAThread]
         static void Main()
         {
-            #region CustomCode
             // Add Services by dependencyInjection
             var builder = new ContainerBuilder();
 
@@ -28,14 +27,11 @@ namespace Work_Tool
                 .InstancePerLifetimeScope();
 
             // Registro i form nel container tentando di accededere alla DI
-
-
             builder.RegisterType<MainWindow>().InstancePerLifetimeScope();
-            builder.RegisterType<StudyWindow>().InstancePerLifetimeScope();
             builder.RegisterType<IdeasWindow>().InstancePerLifetimeScope();
-            builder.RegisterType<ToDoWindow>().InstancePerLifetimeScope();
             builder.RegisterType<PrompTemplate>().InstancePerLifetimeScope();
-
+            builder.RegisterType<Landing_Page>().InstancePerLifetimeScope();
+            builder.RegisterType<Forms.Label_Wind>().InstancePerLifetimeScope();
 
             //Registro la funzione di creazione
             builder.Register<Func<Type, Form>>(context =>
@@ -51,10 +47,8 @@ namespace Work_Tool
 
             var formFactory = container.Resolve<IFormFactory>();
 
-            var mainWindow = formFactory.CreateMainWindow();
+            var mainWindow = formFactory.CreateLandingPages();
 
-
-            #endregion
             // RUN FROM CUSTOM CONTAINER
             Application.Run(mainWindow);
 

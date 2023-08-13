@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Work_Tool.Forms
+namespace Work_Tool.Custom_Controls
 {
-    public partial class ToDoWindow : Form
+    public partial class Progres_Bar_Main : UserControl
     {
-        public ToDoWindow()
+        public Progres_Bar_Main()
         {
             InitializeComponent();
         }
