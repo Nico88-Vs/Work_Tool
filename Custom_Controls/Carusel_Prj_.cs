@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Work_Tool.Forms
+namespace Work_Tool.Custom_Controls
 {
-    public partial class IdeasWindow : Form
+    public partial class Carusel_Prj_ : UserControl
     {
-        public IdeasWindow()
+        public Carusel_Prj_()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

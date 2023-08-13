@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work_Tool", "Work_Tool.csproj", "{99EB831A-C592-4F84-8117-4F0D680EA98D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W_Tool_LibreriaClassi", "..\W_Tool_LibreriaClassi\W_Tool_LibreriaClassi.csproj", "{5B33376A-6B96-4021-8417-34E2E9AE502C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Work_Tool", "Work_Tool.csproj", "{99EB831A-C592-4F84-8117-4F0D680EA98D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{99EB831A-C592-4F84-8117-4F0D680EA98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99EB831A-C592-4F84-8117-4F0D680EA98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99EB831A-C592-4F84-8117-4F0D680EA98D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B33376A-6B96-4021-8417-34E2E9AE502C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B33376A-6B96-4021-8417-34E2E9AE502C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B33376A-6B96-4021-8417-34E2E9AE502C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B33376A-6B96-4021-8417-34E2E9AE502C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

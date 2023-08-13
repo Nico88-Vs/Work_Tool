@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Work_Tool.Forms
 {
-    public partial class ToDoWindow : Form
+    public partial class Landing_Page : Form
     {
-        public ToDoWindow()
+        public Landing_Page()
         {
+            //Tento di aggiungere le skin devexpress
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+
             InitializeComponent();
+        }
+
+        private void Header_Tebel_Panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

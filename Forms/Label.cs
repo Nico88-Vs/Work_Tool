@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Work_Tool.Forms
 {
-    public partial class IdeasWindow : Form
+    public partial class Label : Form
     {
-        public IdeasWindow()
+        public Label()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

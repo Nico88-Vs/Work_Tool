@@ -221,12 +221,7 @@ namespace Work_Tool.Forms
 
         private void BtnDaFare_Click(object sender, EventArgs e)
         {
-            new ToDoWindow().ShowDialog();
-        }
-
-        private void BtnStudiare_Click(object sender, EventArgs e)
-        {
-            new StudyWindow().ShowDialog();
+            new  Landing_Page().ShowDialog();
         }
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)

@@ -28,12 +28,8 @@ namespace Work_Tool
                 .InstancePerLifetimeScope();
 
             // Registro i form nel container tentando di accededere alla DI
-
-
             builder.RegisterType<MainWindow>().InstancePerLifetimeScope();
-            builder.RegisterType<StudyWindow>().InstancePerLifetimeScope();
             builder.RegisterType<IdeasWindow>().InstancePerLifetimeScope();
-            builder.RegisterType<ToDoWindow>().InstancePerLifetimeScope();
             builder.RegisterType<PrompTemplate>().InstancePerLifetimeScope();
 
 
