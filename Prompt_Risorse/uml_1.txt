@@ -1,0 +1,54 @@
+﻿@startuml
+
+class Idea {
+    +Description: string
+    +Category: Category
+    +Status: Status
+    +SubTasks: List<SubTask>
+    +AddSubTask(task: SubTask): void
+    +UpdateStatus(status: Status): void
+}
+
+class Topic {
+    +Title: string
+    +SubTopics: List<Topic>
+    +FractalStructure: FractalStructure
+    +AddSubTopic(topic: Topic): void
+    +ExploreFractal(): FractalStructure
+}
+
+class Tool {
+    +Type: ToolType
+    +Content: string
+    +ApplyToTopic(topic: Topic): void
+    +ApplyToIdea(idea: Idea): void
+}
+
+class WorkManagement {
+    +Calendar: Calendar
+    +Tasks: List<Task>
+    +Reminders: List<Reminder>
+    +AddTask(task: Task): void
+    +SetReminder(reminder: Reminder): void
+}
+
+class SubTask
+class Status
+class Category
+class FractalStructure
+class Calendar
+class Task
+class Reminder
+
+Idea "1" *-- "many" SubTask: contains
+Idea -- Category
+Idea -- Status
+Topic "1" *-- "many" Topic: contains
+Topic -- FractalStructure
+Tool -- Idea: applies
+Tool -- Topic: applies
+WorkManagement -- Calendar
+WorkManagement -- Task
+WorkManagement -- Reminder
+
+@enduml
