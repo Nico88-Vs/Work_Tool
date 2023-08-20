@@ -306,7 +306,7 @@
             splitContainer1.Panel2.Controls.Add(splitContainer2);
             this.tablePanel2.SetRow(splitContainer1, 1);
             splitContainer1.Size = new Size(711, 26);
-            splitContainer1.SplitterDistance = 537;
+            splitContainer1.SplitterDistance = 536;
             splitContainer1.TabIndex = 4;
             // 
             // progres_textbox
@@ -318,7 +318,7 @@
             progres_textbox.Location = new Point(0, 0);
             progres_textbox.Name = "progres_textbox";
             progres_textbox.ReadOnly = true;
-            progres_textbox.Size = new Size(537, 23);
+            progres_textbox.Size = new Size(536, 23);
             progres_textbox.TabIndex = 2;
             progres_textbox.TextAlign = HorizontalAlignment.Center;
             // 
@@ -335,7 +335,7 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(this.simpleButton5);
-            splitContainer2.Size = new Size(170, 26);
+            splitContainer2.Size = new Size(171, 26);
             splitContainer2.SplitterDistance = 73;
             splitContainer2.TabIndex = 0;
             // 
@@ -355,7 +355,7 @@
             this.simpleButton5.Dock = DockStyle.Fill;
             this.simpleButton5.Location = new Point(0, 0);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new Size(93, 26);
+            this.simpleButton5.Size = new Size(94, 26);
             this.simpleButton5.TabIndex = 0;
             this.simpleButton5.Text = "Ex_Funct";
             // 
@@ -389,7 +389,7 @@
             this.carusel_Prj_1.Margin = new Padding(0);
             this.carusel_Prj_1.Name = "carusel_Prj_1";
             this.carusel_Prj_1.Size = new Size(1144, 143);
-            this.carusel_Prj_1.TabIndex = 0;
+            this.carusel_Prj_1.TabIndex = 5;
             // 
             // timernotifiche
             // 
@@ -602,9 +602,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.Utils.Layout.TablePanel tablePanel2;
-        private Custom_Controls.Progect_Details progect_Details1;
         private TreeView Tree_view;
-        private Custom_Controls.Carusel_Prj_ carusel_Prj_1;
         private DevExpress.XtraEditors.CheckButton checkButton1;
         private Label label4;
         private System.Windows.Forms.Timer timernotifiche;
@@ -636,5 +634,7 @@
         private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
         private DevExpress.XtraBars.BarStaticItem label_Static_Item_popup;
         private DevExpress.XtraBars.BarSubItem execute_Function_popUp;
+        private Custom_Controls.Carusel_Prj_ carusel_Prj_1;
+        private Custom_Controls.Progect_Details progect_Details1;
     }
 }
