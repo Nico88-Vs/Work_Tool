@@ -22,7 +22,7 @@ namespace Work_Tool
             // DataContext_Injection
             builder.RegisterType<DataContext>()
                 .WithParameter("options", new DbContextOptionsBuilder<DataContext>()
-                .UseSqlite("Data Source=C:\\Users\\user\\OneDrive\\Desktop\\DB\\Test_WorkTool.db")
+                .UseSqlite("Data Source=C:\\Users\\user\\OneDrive\\Desktop\\DB\\TestSecondo_WorkTool.db")
                 .Options)
                 .InstancePerLifetimeScope();
 

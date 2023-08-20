@@ -1,0 +1,11 @@
+- **Go to Everything/Type**: `Ctrl+T`
+- **Go to File**: `Ctrl+Shift+T`
+- **Go to Symbol**: `Alt+\`
+- **Find Usages**: `Shift+F12`
+- **Go to Declaration**: `Ctrl+B` o `F12`
+- **Go to Implementation**: `Ctrl+Alt+B`
+- **Go to Base**: `Alt+Home`
+- **Go to Derived Symbols**: `Alt+End`
+- **Go to Next/Previous Member**: `Alt+Up` o `Alt+Down`
+- **Go to Related Files**: `Alt+Shift+L`
+- **Go to Containing Declaration**: `Ctrl+[`

@@ -14,7 +14,7 @@ namespace Work_Tool
             var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
 
             // Aggiusta la stringa di connessione secondo le tue esigenze
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\user\\OneDrive\\Desktop\\DB\\Test_WorkTool.db"); 
+            optionsBuilder.UseSqlite("Data Source=C:\\Users\\user\\OneDrive\\Desktop\\DB\\TestSecondo_WorkTool.db"); 
 
             return new DataContext(optionsBuilder.Options);
         }

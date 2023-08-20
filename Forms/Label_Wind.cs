@@ -37,7 +37,7 @@ namespace Work_Tool.Forms
         {
             if (textEdit_Nome.Text != string.Empty)
             {
-                bool conteincolor =  context.Label
+                bool conteincolor = context.Label
                     .Where(x => x.LabelColor == colorEdit_DropDown.Color.Name || x.Ambit.ToLower() == textEdit_Nome.Text.ToLower())
                     .Any();
 
@@ -49,8 +49,18 @@ namespace Work_Tool.Forms
 
                 else
                 {
-                    context.Label.Add(new Label_() { Ambit = textEdit_Nome.Text, LabelColor = colorEdit_DropDown.Color.Name });
-                    await context.SaveChangesAsync();
+                    try
+                    {
+                        context.Label.Add(new Label_() { Ambit = textEdit_Nome.Text, LabelColor = colorEdit_DropDown.Color.Name });
+                        await context.SaveChangesAsync();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine($"message {ex.Message}");
+                    }
+                    
                 }
 
                 RetriveLabelList();

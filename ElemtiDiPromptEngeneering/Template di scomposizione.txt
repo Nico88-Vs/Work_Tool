@@ -1,0 +1,26 @@
+﻿Argomento: {ARGOMENTO}
+Prospettiva: {PROSPETTIVA}
+Profondità di Scomposizione: {PROFONDITÀ}
+Basandoti sull'argomento {ARGOMENTO} e tenendo conto della prospettiva {PROSPETTIVA}, scomponi l'argomento in una lista piatta di elementi che rispecchiano la classe Task_. Durante la scomposizione, considera domande come:
+Quali sono le principali sfide o concetti chiave associati a ciascun sotto-argomento?
+Ci sono dipendenze o prerequisiti tra i sotto-argomenti?
+Quali esempi concreti possono chiarire ogni sotto-argomento?
+L'output desiderato è una lista piatta di elementi JSON. Ecco un esempio di come dovrebbero apparire gli elementi:
+/*
+  NOTA: I nomi delle proprietà e la struttura generale del JSON devono rimanere invariati.
+*/
+{
+  "Description": "[Descrizione breve]",
+  "Nome": "[Nome dell'argomento o sotto-argomento]",
+  "ParentID": 0, // Il primo elemento della lista avrà ParentID impostato su zero
+  "Riferiemnti": [
+    {
+      "URL": "[URL del riferimento]",
+      "Titolo": "[Titolo del riferimento]"
+    },
+    ...
+  ],
+  "Suggerimenti": "[Suggerimenti rilevanti per l'argomento]",
+  "Esercizi": "[Esercizi o compiti associati all'argomento]",
+  "relazioneIterna": [ID univoco dell'argomento o sotto-argomento]
+}

@@ -13,7 +13,7 @@ namespace Work_Tool.Custom_Controls
 {
     public partial class Progect_Details : UserControl
     {
-        public DropDownButton DropDownList;
+        public System.Windows.Forms.ComboBox DropDownList;
         public Button PushBtn;
         public Button Resources;
         public TextEdit EditDescription;
@@ -22,7 +22,7 @@ namespace Work_Tool.Custom_Controls
         public Label label3_ = new Label();
         public Label label2_ = new Label();
         public Label label1_ = new Label();
-        public Label label4_ = new Label();   
+        public Label label4_ = new Label();
 
         public Progect_Details()
         {

@@ -30,7 +30,6 @@
         private void InitializeComponent()
         {
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
@@ -40,6 +39,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            dropDownButton1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)this.tablePanel1).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)this.textEdit3.Properties).BeginInit();
@@ -52,7 +52,7 @@
             this.tablePanel1.AutoSize = true;
             this.tablePanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 7.7F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 52.3F) });
-            this.tablePanel1.Controls.Add(this.dropDownButton1);
+            this.tablePanel1.Controls.Add(dropDownButton1);
             this.tablePanel1.Controls.Add(this.textEdit3);
             this.tablePanel1.Controls.Add(this.textEdit2);
             this.tablePanel1.Controls.Add(this.textEdit1);
@@ -70,16 +70,6 @@
             this.tablePanel1.Size = new Size(657, 273);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
-            // 
-            // dropDownButton1
-            // 
-            this.tablePanel1.SetColumn(this.dropDownButton1, 1);
-            this.dropDownButton1.Location = new Point(94, 168);
-            this.dropDownButton1.Name = "dropDownButton1";
-            this.tablePanel1.SetRow(this.dropDownButton1, 3);
-            this.dropDownButton1.Size = new Size(550, 23);
-            this.dropDownButton1.TabIndex = 9;
-            this.dropDownButton1.Text = "dropDownButton1";
             // 
             // textEdit3
             // 
@@ -174,6 +164,17 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
+            // dropDownButton1
+            // 
+            this.tablePanel1.SetColumn(dropDownButton1, 1);
+            dropDownButton1.Dock = DockStyle.Fill;
+            dropDownButton1.FormattingEnabled = true;
+            dropDownButton1.Location = new Point(94, 153);
+            dropDownButton1.Name = "dropDownButton1";
+            this.tablePanel1.SetRow(dropDownButton1, 3);
+            dropDownButton1.Size = new Size(550, 21);
+            dropDownButton1.TabIndex = 9;
+            // 
             // Progect_Details
             // 
             this.AutoScaleDimensions = new SizeF(7F, 15F);
@@ -204,7 +205,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private DevExpress.XtraEditors.DropDownButton dropDownButton1;
         private DevExpress.XtraEditors.TextEdit textEdit3;
+        private ComboBox dropDownButton1;
     }
 }

@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Landing_Page));
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.Main_TablePanel = new DevExpress.Utils.Layout.TablePanel();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            Nome_ = new TextBox();
             label4 = new Label();
-            this.Name_ = new DevExpress.XtraEditors.LabelControl();
             this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -41,17 +42,37 @@
             this.Horizontat_Split_COntainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.Vertical_Split_Container = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+            this.progect_Details1 = new Custom_Controls.Progect_Details();
             splitContainer1 = new SplitContainer();
             progres_textbox = new TextBox();
             splitContainer2 = new SplitContainer();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             textBox1 = new TextBox();
-            this.progect_Details1 = new Custom_Controls.Progect_Details();
             Tree_view = new TreeView();
             this.carusel_Prj_1 = new Custom_Controls.Carusel_Prj_();
             this.timernotifiche = new System.Windows.Forms.Timer(this.components);
             this.timercarosel = new System.Windows.Forms.Timer(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barToggleCompleted = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.status_popup = new DevExpress.XtraBars.BarSubItem();
+            this.linkcontainer_popup = new DevExpress.XtraBars.BarLinkContainerItem();
+            this.barLargeButtonItem1 = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.task_info_popup = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
+            this.barListItem1_info = new DevExpress.XtraBars.BarListItem();
+            this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
+            this.barToolbarsListItem1 = new DevExpress.XtraBars.BarToolbarsListItem();
+            this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
+            this.label_Static_Item_popup = new DevExpress.XtraBars.BarStaticItem();
+            this.execute_Function_popUp = new DevExpress.XtraBars.BarSubItem();
+            this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
+            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)this.Main_TablePanel).BeginInit();
             this.Main_TablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)this.tablePanel1).BeginInit();
@@ -78,6 +99,8 @@
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)this.barManager1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)this.radialMenu1).BeginInit();
             this.SuspendLayout();
             // 
             // Main_TablePanel
@@ -100,8 +123,8 @@
             this.tablePanel1.AutoSize = true;
             this.Main_TablePanel.SetColumn(this.tablePanel1, 0);
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 46.85F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 10.85F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 53.15F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 52.25F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 86.9F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F) });
+            this.tablePanel1.Controls.Add(Nome_);
             this.tablePanel1.Controls.Add(label4);
-            this.tablePanel1.Controls.Add(this.Name_);
             this.tablePanel1.Controls.Add(this.checkButton1);
             this.tablePanel1.Controls.Add(this.simpleButton3);
             this.tablePanel1.Controls.Add(this.simpleButton2);
@@ -115,6 +138,19 @@
             this.tablePanel1.Size = new Size(1152, 51);
             this.tablePanel1.TabIndex = 1;
             this.tablePanel1.UseSkinIndents = true;
+            // 
+            // Nome_
+            // 
+            this.tablePanel1.SetColumn(Nome_, 0);
+            Nome_.Dock = DockStyle.Fill;
+            Nome_.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Nome_.Location = new Point(13, 12);
+            Nome_.Name = "Nome_";
+            this.tablePanel1.SetRow(Nome_, 0);
+            Nome_.Size = new Size(124, 26);
+            Nome_.TabIndex = 9;
+            Nome_.Text = "prj_Name";
+            Nome_.TextAlign = HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -130,32 +166,15 @@
             label4.Text = "Label";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // Name_
-            // 
-            this.Name_.AccessibleDescription = "Nome";
-            this.Name_.AccessibleName = "Name";
-            this.Name_.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            this.Name_.Appearance.Options.UseFont = true;
-            this.Name_.Appearance.Options.UseTextOptions = true;
-            this.Name_.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.tablePanel1.SetColumn(this.Name_, 0);
-            this.Name_.Dock = DockStyle.Fill;
-            this.Name_.Location = new Point(13, 12);
-            this.Name_.Name = "Name_";
-            this.tablePanel1.SetRow(this.Name_, 0);
-            this.Name_.Size = new Size(124, 26);
-            this.Name_.TabIndex = 7;
-            this.Name_.Text = "Landing_Page";
-            // 
             // checkButton1
             // 
             this.tablePanel1.SetColumn(this.checkButton1, 4);
             this.checkButton1.ImageOptions.Image = (Image)resources.GetObject("checkButton1.ImageOptions.Image");
             this.checkButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.checkButton1.Location = new Point(457, 13);
+            this.checkButton1.Location = new Point(457, 14);
             this.checkButton1.Name = "checkButton1";
             this.tablePanel1.SetRow(this.checkButton1, 0);
-            this.checkButton1.Size = new Size(233, 23);
+            this.checkButton1.Size = new Size(233, 21);
             this.checkButton1.TabIndex = 6;
             // 
             // simpleButton3
@@ -247,9 +266,9 @@
             this.tablePanel2.AutoSize = true;
             this.tablePanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F) });
+            this.tablePanel2.Controls.Add(this.progect_Details1);
             this.tablePanel2.Controls.Add(splitContainer1);
             this.tablePanel2.Controls.Add(textBox1);
-            this.tablePanel2.Controls.Add(this.progect_Details1);
             this.tablePanel2.Dock = DockStyle.Fill;
             this.tablePanel2.Location = new Point(0, 0);
             this.tablePanel2.Name = "tablePanel2";
@@ -257,6 +276,19 @@
             this.tablePanel2.Size = new Size(737, 404);
             this.tablePanel2.TabIndex = 0;
             this.tablePanel2.UseSkinIndents = true;
+            // 
+            // progect_Details1
+            // 
+            this.progect_Details1.AutoSize = true;
+            this.progect_Details1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            this.tablePanel2.SetColumn(this.progect_Details1, 0);
+            this.progect_Details1.Dock = DockStyle.Fill;
+            this.progect_Details1.Location = new Point(11, 10);
+            this.progect_Details1.Margin = new Padding(0);
+            this.progect_Details1.Name = "progect_Details1";
+            this.tablePanel2.SetRow(this.progect_Details1, 0);
+            this.progect_Details1.Size = new Size(715, 235);
+            this.progect_Details1.TabIndex = 5;
             // 
             // splitContainer1
             // 
@@ -274,7 +306,7 @@
             splitContainer1.Panel2.Controls.Add(splitContainer2);
             this.tablePanel2.SetRow(splitContainer1, 1);
             splitContainer1.Size = new Size(711, 26);
-            splitContainer1.SplitterDistance = 544;
+            splitContainer1.SplitterDistance = 537;
             splitContainer1.TabIndex = 4;
             // 
             // progres_textbox
@@ -286,7 +318,7 @@
             progres_textbox.Location = new Point(0, 0);
             progres_textbox.Name = "progres_textbox";
             progres_textbox.ReadOnly = true;
-            progres_textbox.Size = new Size(544, 23);
+            progres_textbox.Size = new Size(537, 23);
             progres_textbox.TabIndex = 2;
             progres_textbox.TextAlign = HorizontalAlignment.Center;
             // 
@@ -303,7 +335,7 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(this.simpleButton5);
-            splitContainer2.Size = new Size(163, 26);
+            splitContainer2.Size = new Size(170, 26);
             splitContainer2.SplitterDistance = 73;
             splitContainer2.TabIndex = 0;
             // 
@@ -323,7 +355,7 @@
             this.simpleButton5.Dock = DockStyle.Fill;
             this.simpleButton5.Location = new Point(0, 0);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new Size(86, 26);
+            this.simpleButton5.Size = new Size(93, 26);
             this.simpleButton5.TabIndex = 0;
             this.simpleButton5.Text = "Ex_Funct";
             // 
@@ -339,19 +371,6 @@
             this.tablePanel2.SetRow(textBox1, 2);
             textBox1.Size = new Size(711, 114);
             textBox1.TabIndex = 3;
-            // 
-            // progect_Details1
-            // 
-            this.progect_Details1.AutoSize = true;
-            this.progect_Details1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.tablePanel2.SetColumn(this.progect_Details1, 0);
-            this.progect_Details1.Dock = DockStyle.Fill;
-            this.progect_Details1.Location = new Point(11, 10);
-            this.progect_Details1.Margin = new Padding(0);
-            this.progect_Details1.Name = "progect_Details1";
-            this.tablePanel2.SetRow(this.progect_Details1, 0);
-            this.progect_Details1.Size = new Size(715, 235);
-            this.progect_Details1.TabIndex = 1;
             // 
             // Tree_view
             // 
@@ -380,12 +399,159 @@
             // 
             this.timercarosel.Interval = 5000;
             // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { this.barToggleCompleted, this.status_popup, this.linkcontainer_popup, this.barLargeButtonItem1, this.task_info_popup, this.barCheckItem1, this.barListItem1_info, this.barDockingMenuItem1, this.barToolbarsListItem1, this.barLinkContainerItem1, this.label_Static_Item_popup, this.execute_Function_popUp });
+            this.barManager1.MaxItemId = 21;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = DockStyle.Top;
+            this.barDockControlTop.Location = new Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new Size(1174, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = DockStyle.Bottom;
+            this.barDockControlBottom.Location = new Point(0, 637);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new Size(1174, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = DockStyle.Left;
+            this.barDockControlLeft.Location = new Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new Size(0, 637);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = DockStyle.Right;
+            this.barDockControlRight.Location = new Point(1174, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new Size(0, 637);
+            // 
+            // barToggleCompleted
+            // 
+            this.barToggleCompleted.AllowRightClickInMenu = false;
+            this.barToggleCompleted.Caption = "Completed";
+            this.barToggleCompleted.Id = 2;
+            this.barToggleCompleted.ImageOptions.DisabledImage = (Image)resources.GetObject("barToggleCompleted.ImageOptions.DisabledImage");
+            this.barToggleCompleted.ImageOptions.DisabledImageIndex = 1;
+            this.barToggleCompleted.ImageOptions.DisabledLargeImage = (Image)resources.GetObject("barToggleCompleted.ImageOptions.DisabledLargeImage");
+            this.barToggleCompleted.ImageOptions.DisabledLargeImageIndex = 2;
+            this.barToggleCompleted.ImageOptions.Image = (Image)resources.GetObject("barToggleCompleted.ImageOptions.Image");
+            this.barToggleCompleted.ImageOptions.ImageIndex = 0;
+            this.barToggleCompleted.ImageOptions.LargeImage = (Image)resources.GetObject("barToggleCompleted.ImageOptions.LargeImage");
+            this.barToggleCompleted.ImageOptions.LargeImageIndex = 3;
+            this.barToggleCompleted.Name = "barToggleCompleted";
+            // 
+            // status_popup
+            // 
+            this.status_popup.Caption = "Status";
+            this.status_popup.Id = 3;
+            this.status_popup.ImageOptions.Image = (Image)resources.GetObject("status_popup.ImageOptions.Image");
+            this.status_popup.Name = "status_popup";
+            // 
+            // linkcontainer_popup
+            // 
+            this.linkcontainer_popup.Caption = "Links";
+            this.linkcontainer_popup.Id = 5;
+            this.linkcontainer_popup.ImageOptions.Image = (Image)resources.GetObject("linkcontainer_popup.ImageOptions.Image");
+            this.linkcontainer_popup.ImageOptions.LargeImage = (Image)resources.GetObject("linkcontainer_popup.ImageOptions.LargeImage");
+            this.linkcontainer_popup.Name = "linkcontainer_popup";
+            // 
+            // barLargeButtonItem1
+            // 
+            this.barLargeButtonItem1.Caption = "Details";
+            this.barLargeButtonItem1.Id = 6;
+            this.barLargeButtonItem1.ImageOptions.Image = (Image)resources.GetObject("barLargeButtonItem1.ImageOptions.Image");
+            this.barLargeButtonItem1.Name = "barLargeButtonItem1";
+            // 
+            // task_info_popup
+            // 
+            this.task_info_popup.Caption = "Task_Info";
+            this.task_info_popup.Id = 10;
+            this.task_info_popup.ImageOptions.Image = (Image)resources.GetObject("task_info_popup.ImageOptions.Image");
+            this.task_info_popup.Name = "task_info_popup";
+            // 
+            // barCheckItem1
+            // 
+            this.barCheckItem1.Caption = "barCheckItem1";
+            this.barCheckItem1.Id = 13;
+            this.barCheckItem1.Name = "barCheckItem1";
+            // 
+            // barListItem1_info
+            // 
+            this.barListItem1_info.Caption = "barListItem1";
+            this.barListItem1_info.Id = 14;
+            this.barListItem1_info.Name = "barListItem1_info";
+            // 
+            // barDockingMenuItem1
+            // 
+            this.barDockingMenuItem1.Caption = "barDockingMenuItem1";
+            this.barDockingMenuItem1.Id = 15;
+            this.barDockingMenuItem1.Name = "barDockingMenuItem1";
+            // 
+            // barToolbarsListItem1
+            // 
+            this.barToolbarsListItem1.Caption = "barToolbarsListItem1";
+            this.barToolbarsListItem1.Id = 16;
+            this.barToolbarsListItem1.Name = "barToolbarsListItem1";
+            // 
+            // barLinkContainerItem1
+            // 
+            this.barLinkContainerItem1.Caption = "barLinkContainerItem1";
+            this.barLinkContainerItem1.Id = 17;
+            this.barLinkContainerItem1.Name = "barLinkContainerItem1";
+            // 
+            // label_Static_Item_popup
+            // 
+            this.label_Static_Item_popup.Caption = "task_name";
+            this.label_Static_Item_popup.Id = 19;
+            this.label_Static_Item_popup.ImageOptions.Image = (Image)resources.GetObject("label_Static_Item_popup.ImageOptions.Image");
+            this.label_Static_Item_popup.Name = "label_Static_Item_popup";
+            this.label_Static_Item_popup.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // execute_Function_popUp
+            // 
+            this.execute_Function_popUp.Caption = "Execute_Function";
+            this.execute_Function_popUp.Id = 20;
+            this.execute_Function_popUp.Name = "execute_Function_popUp";
+            // 
+            // workspaceManager1
+            // 
+            this.workspaceManager1.TargetControl = this;
+            this.workspaceManager1.TransitionType = pushTransition1;
+            // 
+            // radialMenu1
+            // 
+            this.radialMenu1.InnerRadius = 20;
+            this.radialMenu1.ItemAutoSize = DevExpress.XtraBars.Ribbon.RadialMenuItemAutoSize.Spring;
+            this.radialMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(this.label_Static_Item_popup), new DevExpress.XtraBars.LinkPersistInfo(this.linkcontainer_popup), new DevExpress.XtraBars.LinkPersistInfo(this.task_info_popup), new DevExpress.XtraBars.LinkPersistInfo(this.status_popup), new DevExpress.XtraBars.LinkPersistInfo(this.execute_Function_popUp) });
+            this.radialMenu1.Manager = this.barManager1;
+            this.radialMenu1.Name = "radialMenu1";
+            // 
             // Landing_Page
             // 
             this.AutoScaleDimensions = new SizeF(7F, 15F);
             this.AutoScaleMode = AutoScaleMode.Font;
             this.ClientSize = new Size(1174, 637);
             this.Controls.Add(this.Main_TablePanel);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "Landing_Page";
             this.Text = "Landing_Page";
             ((System.ComponentModel.ISupportInitialize)this.Main_TablePanel).EndInit();
@@ -420,6 +586,8 @@
             splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)this.barManager1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)this.radialMenu1).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -438,7 +606,6 @@
         private TreeView Tree_view;
         private Custom_Controls.Carusel_Prj_ carusel_Prj_1;
         private DevExpress.XtraEditors.CheckButton checkButton1;
-        private DevExpress.XtraEditors.LabelControl Name_;
         private Label label4;
         private System.Windows.Forms.Timer timernotifiche;
         private System.Windows.Forms.Timer timercarosel;
@@ -448,5 +615,26 @@
         private SplitContainer splitContainer2;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private TextBox Nome_;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarToggleSwitchItem barToggleCompleted;
+        private DevExpress.XtraBars.BarSubItem status_popup;
+        private DevExpress.XtraBars.BarLinkContainerItem linkcontainer_popup;
+        private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem1;
+        private DevExpress.XtraBars.Ribbon.RadialMenu radialMenu1;
+        private DevExpress.Utils.WorkspaceManager workspaceManager1;
+        private DevExpress.XtraBars.BarButtonItem task_info_popup;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
+        private DevExpress.XtraBars.BarListItem barListItem1_info;
+        private DevExpress.XtraBars.BarDockingMenuItem barDockingMenuItem1;
+        private DevExpress.XtraBars.BarToolbarsListItem barToolbarsListItem1;
+        private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
+        private DevExpress.XtraBars.BarStaticItem label_Static_Item_popup;
+        private DevExpress.XtraBars.BarSubItem execute_Function_popUp;
     }
 }

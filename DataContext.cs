@@ -19,7 +19,7 @@ namespace Work_Tool
 
         // Costruttore senza parametri
         public DataContext() { }
-
+        public DbSet<Riferimenti> Riferimenti => Set<Riferimenti>();
         public DbSet<Idea> Ideas => Set<Idea>();
         public DbSet<Topic> Topic => Set<Topic>();
         public DbSet<ToDoItem> ToDoItem => Set<ToDoItem>();

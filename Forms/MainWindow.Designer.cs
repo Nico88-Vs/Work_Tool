@@ -201,8 +201,8 @@ namespace Work_Tool.Forms
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string selectedFilePath = openFileDialog.FileName;
-                Json_Converter converter = new Json_Converter(selectedFilePath);
-                List<Topic> topics = converter.Convert(selectedFilePath);
+                Json_Converter<Topic> converter = new Json_Converter<Topic>(selectedFilePath);
+                List<Topic> topics = converter.ConvertFromPath();
 
                 if (topics.Any())
                     PuschData(topics);

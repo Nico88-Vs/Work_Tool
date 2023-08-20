@@ -1,0 +1,19 @@
+0. recuperare label da prjdetails1.dropdown1 ... item selected >>> MANCA UN RIFERIMENTO ALL IDEA PER IL PROGETTO
+0. Chiudere le pagine!!
+1. aggiornare tutti i progetti all avvio : IDENTIFICARE ALTRI AGGIORNAMENTI NECESSARI
+2. eliminare record
+3. evitare inserimenti multipli
+4. notifiche di avvenuta creazione
+5. manipolare i nodi >>>>>> Manipolare i nodi , 
+6. eseguire template
+
+                        5. Manipolare I nodi
+                            - Utilizzo di un vero pop up
+                              Selezione Di template per seguire modifica
+                              Recupero del vecchio json
+                              Recupero Template
+                              Comando Per Template (Lista di Template visibili )
+                              Passaggio Variabili tramite String dal popUp delle proprieta 
+                              Elaborazione della stringa/ Aggiornamento lListView 
+
+                              7. Try using plug in in order to reach studys

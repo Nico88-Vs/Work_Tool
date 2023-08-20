@@ -1,0 +1,72 @@
+[
+  {
+    "Description": "Lo studio della produzione, distribuzione e consumo di beni e servizi",
+    "Nome": "Economia",
+    "ParentID": 0,
+    "Riferiemnti": [
+      {
+        "URL": "https://www.investopedia.com/economics-4427699",
+        "Titolo": "Introduzione all'Economia"
+      }
+    ],
+    "Suggerimenti": "Inizia con i principi base dell'economia e approfondisci successivamente",
+    "Esercizi": "Analizza le tendenze economiche di un paese specifico",
+    "relazioneIterna": 1
+  },
+  {
+    "Description": "Analisi dell'attività economica attraverso l'interazione di grandi aggregati economici",
+    "Nome": "Macroeconomia",
+    "ParentID": 1,
+    "Riferiemnti": [
+      {
+        "URL": "https://www.investopedia.com/macroeconomics-4427697",
+        "Titolo": "Fondamenti di Macroeconomia"
+      }
+    ],
+    "Suggerimenti": "Studia le politiche fiscali e monetarie di diverse nazioni",
+    "Esercizi": "Esamina l'impatto delle decisioni di politica monetaria sul PIL",
+    "relazioneIterna": 2
+  },
+  {
+    "Description": "Studia le decisioni individuali in termini di acquisto e vendita e i loro effetti sul mercato",
+    "Nome": "Microeconomia",
+    "ParentID": 1,
+    "Riferiemnti": [
+      {
+        "URL": "https://www.investopedia.com/microeconomics-4427698",
+        "Titolo": "Principi di Microeconomia"
+      }
+    ],
+    "Suggerimenti": "Inizia con la teoria della domanda e dell'offerta",
+    "Esercizi": "Analizza come i cambiamenti nei prezzi influenzano la domanda di un prodotto specifico",
+    "relazioneIterna": 3
+  },
+  {
+    "Description": "La politica governativa volta a influenzare l'economia attraverso la spesa pubblica e la tassazione",
+    "Nome": "Politica fiscale",
+    "ParentID": 2,
+    "Riferiemnti": [
+      {
+        "URL": "https://www.investopedia.com/terms/f/fiscalpolicy.asp",
+        "Titolo": "Cos'è la Politica Fiscale?"
+      }
+    ],
+    "Suggerimenti": "Esamina come la politica fiscale può stimolare o frenare l'economia",
+    "Esercizi": "Valuta l'effetto di un aumento delle tasse sul consumo delle famiglie",
+    "relazioneIterna": 4
+  },
+  {
+    "Description": "Teoria che spiega come le persone prendono decisioni economiche",
+    "Nome": "Teoria del consumatore",
+    "ParentID": 3,
+    "Riferiemnti": [
+      {
+        "URL": "https://www.investopedia.com/terms/c/consumer-theory.asp",
+        "Titolo": "Introduzione alla Teoria del Consumatore"
+      }
+    ],
+    "Suggerimenti": "Studia le curve di indifferenza e le restrizioni di bilancio",
+    "Esercizi": "Crea un grafico che mostra le scelte di consumo ottimali di un individuo",
+    "relazioneIterna": 5
+  }
+]

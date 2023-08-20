@@ -54,7 +54,7 @@ namespace Work_Tool.Pannels
             logo.Region = new Region(new GraphicsPath(new Point[] { new Point(25, 0), new Point(50, 25), new Point(25, 50), new Point(0, 25) }, new byte[] { (byte)PathPointType.Line, (byte)PathPointType.Line, (byte)PathPointType.Line, (byte)PathPointType.Line }));
             tableLayoutPanel.Controls.Add(logo, column:1, row: 0);
 
-            // Bottoni Idee e Todo
+            // Bottoni Idee e To_do
             btnIdee = new Button();
             btnIdee.Text = "Idee";
             btnIdee.Size = new Size(100, 30);

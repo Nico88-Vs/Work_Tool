@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using W_Tool_LibreriaClassi;
 
 namespace Work_Tool.WorkToll_libreria_di_classi
 {
@@ -15,16 +16,29 @@ namespace Work_Tool.WorkToll_libreria_di_classi
         aborted,
         preparing
     }
-    public class Task_ : Idea
+    public class Task_
     {
-        public StattusTask StattusTask { get; set; }
-        public TimeSpan TimeSpan { get; set; }
-        public DateTime StartingData { get; set; }
-        public DateTime EndData { get; set; }
+        [Key]
+        public int Id { get; set; } // DB ID
+        [Required]
+        public string Description { get; set; } = string.Empty;
+        [Required]
+        public string Nome { get; set; } = string.Empty;
+        public int? ParentID { get; set; }
+        [Required]
+        public StattusTask StattusTask { get; set; } = StattusTask.preparing;
         [Required]
         public Progetto Progetto { get; set; } = new Progetto();
-
-        public Task_(string description) : base(description)
+        [Required]
+        public List<Riferimenti> Riferiemnti { get; set; } = new List<Riferimenti>();
+        [Required]
+        public string Suggerimenti { get; set; } = string.Empty;
+        [Required]
+        public string Esercizi { get; set; } = string.Empty;
+        [Required]
+        public double relazioneIterna { get; set; } = 0;
+                      
+        public Task_() 
         {
         }
     }

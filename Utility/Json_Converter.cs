@@ -7,23 +7,26 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Work_Tool.WorkToll_libreria_di_classi;
 
 namespace Work_Tool.Utility
 {
-    public class Json_Converter
+    public class Json_Converter<T>
     {
+        public string Path { get; set; }
         public Json_Converter(string path)
         {
+            this.Path = path;
         }
 
-        public List<Topic> Convert(string path)
+        public List<T> ConvertFromPath()
         {
-            List<Topic> topics = new List<Topic>();
+            List<T> topics = new List<T>();
 
             try
             {
-                string jsontxt = File.ReadAllText(path);
-                topics = JsonConvert.DeserializeObject<List<Topic>>(jsontxt)!;
+                string jsontxt = File.ReadAllText(this.Path);
+                topics = JsonConvert.DeserializeObject<List<T>>(jsontxt)!;
             }
             catch (Exception ex)
             {
@@ -32,6 +35,21 @@ namespace Work_Tool.Utility
             return topics;
         }
 
-       
+        public List<T> ConvertFromTxt()
+        {
+            List<T> topics = new List<T>();
+
+            try
+            {
+                //string jsontxt = File.ReadAllText(this.Path);
+                topics = JsonConvert.DeserializeObject<List<T>>(this.Path)!;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return topics;
+        }
+
     }
 }

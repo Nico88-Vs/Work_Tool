@@ -27,10 +27,6 @@ namespace Work_Tool.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("LabelId")
                         .HasColumnType("INTEGER");
 
@@ -43,10 +39,6 @@ namespace Work_Tool.Migrations
                     b.HasIndex("LabelId");
 
                     b.ToTable("Ideas");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Idea");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("W_Tool_LibreriaClassi.Label_", b =>
@@ -89,6 +81,30 @@ namespace Work_Tool.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Template");
+                });
+
+            modelBuilder.Entity("W_Tool_LibreriaClassi.Riferimenti", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Task_Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Titolo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("URL")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Task_Id");
+
+                    b.ToTable("Riferimenti");
                 });
 
             modelBuilder.Entity("W_Tool_LibreriaClassi.ToDoItem", b =>
@@ -183,26 +199,43 @@ namespace Work_Tool.Migrations
 
             modelBuilder.Entity("Work_Tool.WorkToll_libreria_di_classi.Task_", b =>
                 {
-                    b.HasBaseType("W_Tool_LibreriaClassi.Idea");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("EndData")
+                    b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<string>("Esercizi")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ParentID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("ProgettoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("StartingData")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("StattusTask")
                         .HasColumnType("INTEGER");
 
-                    b.Property<TimeSpan>("TimeSpan")
+                    b.Property<string>("Suggerimenti")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<double>("relazioneIterna")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("ProgettoId");
 
-                    b.HasDiscriminator().HasValue("Task_");
+                    b.ToTable("Task_");
                 });
 
             modelBuilder.Entity("W_Tool_LibreriaClassi.Idea", b =>
@@ -214,6 +247,13 @@ namespace Work_Tool.Migrations
                         .IsRequired();
 
                     b.Navigation("Label");
+                });
+
+            modelBuilder.Entity("W_Tool_LibreriaClassi.Riferimenti", b =>
+                {
+                    b.HasOne("Work_Tool.WorkToll_libreria_di_classi.Task_", null)
+                        .WithMany("Riferiemnti")
+                        .HasForeignKey("Task_Id");
                 });
 
             modelBuilder.Entity("W_Tool_LibreriaClassi.Topic", b =>
@@ -261,6 +301,11 @@ namespace Work_Tool.Migrations
             modelBuilder.Entity("Work_Tool.WorkToll_libreria_di_classi.Progetto", b =>
                 {
                     b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("Work_Tool.WorkToll_libreria_di_classi.Task_", b =>
+                {
+                    b.Navigation("Riferiemnti");
                 });
 #pragma warning restore 612, 618
         }
