@@ -22,9 +22,14 @@ namespace Work_Tool
             return (MainWindow)_formCreator(typeof(MainWindow));
         }
 
-        public IdeasWindow CreateIdeasWindow()
+        public IdeasWindow CreateIdeasWindow(Landing_Page landingPage)
         {
             return (IdeasWindow)_formCreator(typeof(IdeasWindow));
+        }
+
+        public ListOfPrj CreateListOfPrj(Landing_Page landingPage)
+        {
+            return (ListOfPrj)_formCreator(typeof(ListOfPrj));
         }
 
         public PrompTemplate CreatePrompTemplate()
@@ -37,7 +42,7 @@ namespace Work_Tool
             return (Landing_Page)_formCreator(typeof(Landing_Page));
         }
 
-        public Forms.Label_Wind CreateLabel()
+        public Forms.Label_Wind CreateLabel(Landing_Page landingPage)
         {
             return (Forms.Label_Wind)_formCreator(typeof(Forms.Label_Wind));
         }

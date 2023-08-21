@@ -215,8 +215,8 @@ namespace Work_Tool.Forms
 
         private void BtnIdee_Click(object sender, EventArgs e)
         {
-            var ideasWindow = factory.CreateIdeasWindow();
-            ideasWindow.ShowDialog();
+            //var ideasWindow = factory.CreateIdeasWindow(this);
+            //ideasWindow.ShowDialog();
         }
 
         private void BtnDaFare_Click(object sender, EventArgs e)

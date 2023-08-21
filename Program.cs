@@ -32,6 +32,7 @@ namespace Work_Tool
             builder.RegisterType<PrompTemplate>().InstancePerLifetimeScope();
             builder.RegisterType<Landing_Page>().InstancePerLifetimeScope();
             builder.RegisterType<Forms.Label_Wind>().InstancePerLifetimeScope();
+            builder.RegisterType<ListOfPrj>().InstancePerLifetimeScope();
 
             //Registro la funzione di creazione
             builder.Register<Func<Type, Form>>(context =>
@@ -51,10 +52,6 @@ namespace Work_Tool
 
             // RUN FROM CUSTOM CONTAINER
             Application.Run(mainWindow);
-
-            //// RUN BY DEFOULT CONTAINER
-            //ApplicationConfiguration.Initialize();
-            //Application.Run(new MainWindow());
         }
     }
 }

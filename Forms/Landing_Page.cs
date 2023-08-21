@@ -25,8 +25,8 @@ namespace Work_Tool.Forms
         public DataContext Context { get; }
         public IFormFactory factory { get; }
         private List<Label_> Labels = new List<Label_>();
-        private List<Idea> Ideas = new List<Idea>();
-        private List<Progetto> Progetti = new List<Progetto>();
+        public List<Idea> Ideas = new List<Idea>();
+        public List<Progetto> Progetti = new List<Progetto>();
         private int carouselcount = 0;
         private List<Task_>? jsonTemporaryLis;
         private Label_? selectedLabel = null;
@@ -36,7 +36,7 @@ namespace Work_Tool.Forms
         {
             get { return jsonTemporaryLis == null ? true : false; }
         }
-        private static string FoldersPath = "C:\\Users\\user\\source\\repos\\Work_Tool\\PrivateFoldersPrj";
+        private static readonly string FoldersPath = "C:\\Users\\user\\source\\repos\\Work_Tool\\PrivateFoldersPrj";
         #endregion
 
         public Landing_Page(DataContext context, IFormFactory formFactory)
@@ -124,6 +124,18 @@ namespace Work_Tool.Forms
             execute_Function_popUp.ItemClick += this.Execute_Function_popUp_ItemClick;
             Tree_view.NodeMouseDoubleClick += this.Tree_view_NodeMouseDoubleClick;
         }
+
+        #region methods
+
+        private void UpdateThis()
+        {
+            this.ActiveProject = this.GetActive().Result;
+            this.Tree_view.Nodes.Clear();
+            SetUpDetailPage();
+            this.jsonTemporaryLis = null;
+            FillTreeView();
+            this.Refresh();
+        }
         private void Execute_Function_popUp_ItemClick(object sender, ItemClickEventArgs e)
         {
             List<Ptompt_Template> lisTemplate = GetAllPrompTemp().Result;
@@ -143,9 +155,6 @@ namespace Work_Tool.Forms
             addnodes.ItemClick += this.Addnodes_PopUp_ItemClick; ;
             execute_Function_popUp.AddItem(addnodes);
         }
-
-        //todo : qui devo manipolare tag(taskname) o temp tag per eseguire le funzioni necessarie ad aggiornare l albero sia db che temporaneo
-        // todo : add controll, retrive task, pus_json , get List, modify exsisting prj or push newone
         private void Addnodes_PopUp_ItemClick(object sender, ItemClickEventArgs e)
         {
             List<Task_> newTaskList = new Json_Converter<Task_>(textBox1.Text).ConvertFromTxt();
@@ -187,7 +196,6 @@ namespace Work_Tool.Forms
                 Console.WriteLine(ex.Message);
             }
         }
-
         //Build A Specific Folder;
         private void Resources_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -213,8 +221,6 @@ namespace Work_Tool.Forms
             // Tag is riferimenti.Url
             Process.Start(new ProcessStartInfo(e.Item.Tag.ToString()!) { UseShellExecute = true });
         }
-
-        // todo: build a mthod to add related item to existing list
         private List<Task_> AddNodesToExistingTree(List<Task_> newtasks, Task_ relatedtask)
         {
             List<Task_> exisistingTask = tempRunOnDb ? ActiveProject.Tasks : jsonTemporaryLis!;
@@ -233,11 +239,8 @@ namespace Work_Tool.Forms
 
             return exisistingTask;
         }
-
-        #region methods
         private void PushBtn_Click1(object? sender, EventArgs e) => throw new NotImplementedException();
         private void UpdateTask_Status(Task_ task, StattusTask status) => throw new NotImplementedException();
-
         //TreeNore popup
         private void Statbtn_ItemClick(object sender, ItemClickEventArgs e)//evento per i subitem stato, considerare caption
         {
@@ -272,7 +275,6 @@ namespace Work_Tool.Forms
                 var x = ex;
             }
         }
-
         //Ui Area
         private void DropDownList_Click(object? sender, EventArgs e) // Display All Idea
         {
@@ -328,7 +330,6 @@ namespace Work_Tool.Forms
 
             //Tree_view.NodeMouseDoubleClick += this.Tree_view_NodeMouseDoubleClick;
         }
-
         // Services
         private string ReplaceSpaces(string text, int numReplacements)
         {
@@ -450,7 +451,7 @@ namespace Work_Tool.Forms
 
             return list;
         }
-        private async Task<List<Idea>> RetriveAllIdeas()
+        public async Task<List<Idea>> RetriveAllIdeas()
         {
             try
             {
@@ -477,6 +478,24 @@ namespace Work_Tool.Forms
                 LabelColor = Color.AntiqueWhite.Name}
                 };
             }
+        }
+        public async Task MakeActive(Progetto progetto)
+        {
+            foreach (Progetto p in this.Progetti)
+            {
+                if (p != progetto & p.Status == Status.attivo)
+                    p.Status = Status.sospeso;
+
+                if (p == progetto)
+                    p.Status = Status.attivo;
+
+                Context.Update(p);
+            }
+
+            await Context.SaveChangesAsync();
+
+
+            UpdateThis();
         }
         private async Task<Progetto> GetActive()
         {
@@ -521,9 +540,6 @@ namespace Work_Tool.Forms
 
                 if (Progetti.Count < repo.Count)
                     Progetti = repo;
-
-
-
             }
             catch (Exception ex)
             {
@@ -536,9 +552,6 @@ namespace Work_Tool.Forms
         //Pusch new prj on db >>>> Label e sbagliato
         private async void PushBtn_Click(object? sender, EventArgs e)
         {
-            if (jsonTemporaryLis != null)
-                jsonTemporaryLis = null;
-
             if (!checkButton1.Checked)
             {
                 timernotifiche.Start();
@@ -552,6 +565,11 @@ namespace Work_Tool.Forms
                 string secription = progect_Details1.EditDescription.Text;
                 Progetto p = Project_Manager.BuildPrj(jsonTemporaryLis!, Nome_.Text, activeLabel!, secription);
                 PuschPrj(p);
+
+                Progetti = RetriveAllPrj().Result;
+
+                if (jsonTemporaryLis != null)
+                    jsonTemporaryLis = null;
             }
             catch (Exception ex)
             {
@@ -561,6 +579,7 @@ namespace Work_Tool.Forms
                 throw;
             }
 
+
         }
         //Open Res Folder
         private void Resources_Click1(object? sender, EventArgs e) => throw new NotImplementedException();
@@ -569,7 +588,11 @@ namespace Work_Tool.Forms
         //Filter prj
         private void Add_Click(object? sender, EventArgs e) => throw new NotImplementedException();
         // open  list of project
-        private void List_Click(object? sender, EventArgs e) => throw new NotImplementedException();
+        private void List_Click(object? sender, EventArgs e)
+        {
+            var listOfPrjWindow = factory.CreateListOfPrj(this);
+            listOfPrjWindow.ShowDialog();
+        }
         //Open Resource Folder
         private void Resources_Click(object? sender, EventArgs e) => throw new NotImplementedException();
         //Pop_Up sui nodi
@@ -631,12 +654,12 @@ namespace Work_Tool.Forms
         }
         private void Ideas_IN_btn(object? sender, EventArgs e)
         {
-            var ideasWind = factory.CreateIdeasWindow();
+            var ideasWind = factory.CreateIdeasWindow(this);
             ideasWind.ShowDialog();
         }
         private void Label_IN_btn(object? sender, EventArgs e)
         {
-            var labelwin = factory.CreateLabel();
+            var labelwin = factory.CreateLabel(this);
             labelwin.ShowDialog();
         }
         private void CheckButton1_Click(object? sender, EventArgs e)

@@ -17,15 +17,17 @@ namespace Work_Tool.Forms
     public partial class IdeasWindow : Form
     {
         private readonly DataContext DataContext;
+        private Landing_Page _landingPage;
         private List<Idea> ideaslist = new List<Idea>();
 
         private List<Label_> labels = new List<Label_>();
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
-        public IdeasWindow(DataContext context)
+        public IdeasWindow(DataContext context, Landing_Page landingPage)
         {
             InitializeComponent();
             this.DataContext = context;
+            _landingPage = landingPage;
             labels = RetriveAlLabls().Result;
             timer.Interval = 2500;
             timer.Tick += this.Timer_Tick;
@@ -38,7 +40,6 @@ namespace Work_Tool.Forms
             label_DD_list.DrawItem += this.Label_DD_list_DrawItem;
             FillCombobox();
         }
-
         private void Label_DD_list_DrawItem(object? sender, DrawItemEventArgs e)
         {
             if (e.Index < 0)
@@ -129,6 +130,10 @@ namespace Work_Tool.Forms
                     {
                         DataContext.Ideas.Add(new Idea() { Nome = textBox_Nome.Text, Description = textBox_Descrizione.Text, Label = l });
                         await DataContext.SaveChangesAsync();
+
+                        _landingPage.Ideas = _landingPage.RetriveAllIdeas().Result;
+                        _landingPage.Refresh();
+                        this.Close();
                     }
                 }
             }

@@ -14,14 +14,16 @@ namespace Work_Tool.Forms
     public partial class Label_Wind : Form
     {
         private readonly DataContext context;
+        private Landing_Page _landingPage;
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private static List<Label_> list = new List<Label_>();
         
 
-        public Label_Wind(DataContext context)
+        public Label_Wind(DataContext context, Landing_Page landingPage)
         {
             InitializeComponent();
             this.context = context;
+            _landingPage = landingPage;
             button_Crea.Click += this.Button_Crea_Click;
             timer.Interval = 2500;
             timer.Tick += this.Timer_Tick;
@@ -54,6 +56,9 @@ namespace Work_Tool.Forms
                         context.Label.Add(new Label_() { Ambit = textEdit_Nome.Text, LabelColor = colorEdit_DropDown.Color.Name });
                         await context.SaveChangesAsync();
 
+                        _landingPage.Refresh();
+
+                        this.Close();
                     }
                     catch (Exception ex)
                     {
